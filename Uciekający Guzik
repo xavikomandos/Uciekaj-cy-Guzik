@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uciekający guzik</title>
+</head>
+<body>
+
+
+    <button onmouseover="run()"
+    onmousemove="zmiana()"
+    style="position: fixed;" id="btn">Jimi jo cie chwyca</button>
+
+    <script>
+        function run() {
+            let btn = document.getElementById("btn");
+        
+            let r = Math.random(); 
+            r *= window.innerHeight; 
+            r = Math.round(r); 
+            r -= btn.clientHeight;
+            let top = r.toString() + "px";
+            btn.style.top = top;
+            r = Math.random(); 
+            r *= window.innerWidth; 
+            r =Math.round(r);
+            r -= btn.clientWidth;
+            let left = r.toString() + "px";
+            btn.style.left = left;
+
+            console.log("Jimi został chwycony");
+        }
+        function win () {
+            window.alert("SIUUUUUUUUUUUUUU");
+        }
+        setInterval("run()", 1000);
+
+        
+        function zmiana() {
+            let r = Math.round(Math.random()*170);
+            let g = Math.round(Math.random()*190);
+            let b = Math.round(Math.random()*150);
+
+            let color = "rgba(" + r + "," + g + "," + b + ")";
+            
+            document.body.style.backgroundColor = color;
+        }
+            
+        
+    </script>
+</body>
+</html>
